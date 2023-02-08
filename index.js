@@ -51,12 +51,12 @@ var filledPixels = 0;
 function calculateFillAmount(){
     console.log("aboba")
     var p = ctx.getImageData(0, 0, window.innerWidth, window.innerHeight).data; 
-    for(var i=0; i<p.length; i+=8){
+    for(var i=0; i<p.length; i+=4){
         if(p[i] > 10){
             filledPixels++;
         }
     }
-    var percent = (Math.round((filledPixels*2/screenPixels*100) * 100) / 100)
+    var percent = (Math.round((filledPixels/screenPixels*100) * 100) / 100)
     document.title = percent+"%";
     changeIcon(percent);
     if(percent == 100){
